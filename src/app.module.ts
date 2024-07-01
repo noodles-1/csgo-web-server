@@ -4,6 +4,7 @@ import { DataSource } from 'typeorm';
 import { AppController } from '@/app.controller';
 import { AppService } from '@/app.service';
 import { SettingsModule } from '@/settings/settings.module';
+import { Setting } from '@/settings/settings.entity';
 
 import 'dotenv/config'
 
@@ -16,8 +17,8 @@ import 'dotenv/config'
             username: process.env.RDS_USER,
             password: process.env.RDS_PASSWORD,
             database: process.env.RDS_DB,
-            entities: [],
-            synchronize: true,
+            entities: [Setting],
+            synchronize: false,
         }),
         SettingsModule
     ],
